@@ -1,20 +1,17 @@
-#include "so"
+#include "sort.h"
+/**
+ * _swap - swap two ints
+ * @arr: array to change
+ * @i: first int
+ * @j: sec int
+*/
 
-void swap_and_print(int arr[], int i, int j) {
-    /* Swaps the elements at indices i and j in the array arr,
-       prints the final array, and returns the modified array. */
+void _swap(int arr[], int i, int j)
+{
+	int temp;
 
-    // Temporary variable to hold the first element
-    int temp = arr[i];
-
-    // Swap the elements
-    arr[i] = arr[j];
-    arr[j] = temp;
-
-    // Print the final array
-    printf("Swapped array: ");
-    for (int k = 0; k < sizeof(arr) / sizeof(arr[0]); k++) {
-        printf("%d ", arr[k]);
-    }
-    printf("\n");
+	temp = arr[i];
+	arr[i] = arr[j];
+	arr[j] = temp;
+	return (arr);
 }
