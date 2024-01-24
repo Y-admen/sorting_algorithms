@@ -7,11 +7,11 @@
 */
 
 
-void _swap (listint_t *a, listint_t *b)
+void _swap(listint_t *a, listint_t *b)
 {
 	if (a->prev)
 		a->prev->next = b;
-	if(b->next)
+	if (b->next)
 		b->next->prev = a;
 	a->next = b->next;
 	b->next = a;
@@ -26,6 +26,7 @@ void _swap (listint_t *a, listint_t *b)
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *i;
+
 	if (!list || !*list || !(*list)->next)
 		return;
 	i = (*list)->next;
@@ -33,7 +34,7 @@ void insertion_sort_list(listint_t **list)
 	{
 		while ((i->prev) && (i->prev->n > i->n))
 		{
-			_swap(i, list);
+			_swap(i, i->prev);
 			print_list(*list);
 		}
 		i = i->next;
