@@ -3,7 +3,7 @@
 /**
  * _swap - swap two nodes in linked list
  * @a: pointer to node a
- * @b:
+ * @b:pointer to node b
 */
 
 
