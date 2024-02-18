@@ -35,7 +35,9 @@ void insertion_sort_list(listint_t **list)
 		while ((i->prev) && (i->prev->n > i->n))
 		{
 			_swap(i, i->prev);
-			print_list(*list);
+			if (!i->prev)
+			*list = i;
+			print_list((const listint_t *)*list);
 		}
 		i = i->next;
 	}
