@@ -25,24 +25,26 @@ void _swap(listint_t *a, listint_t *b)
 */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *i;
+	listint_t *i, *j;
 
 	if (!list || !*list || !(*list)->next)
 		return;
 	i = (*list)->next;
 	while (i)
 	{
-		while ((i && i->prev))
+		j = i;
+		i = i->next;
+		while (j && j->prev)
 		{
-			if (i->prev->n > i->n)
+			if (j->prev->n > j->n)
 			{
-				_swap(i, i->prev);
-				if (!i->prev)
-					*list = i;
+				swap(j->prev, j);
+				if (!j->prev)
+					*list = j;
 				print_list((const listint_t *)*list);
 			}
 			else
-				i = i->next;
+				j = j->prev;
 		}
 	}
 }
