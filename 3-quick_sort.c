@@ -34,11 +34,11 @@ int partition(int *array, size_t size, int first, int last)
 		if (array[j] < pivot)
 		{
 			swap_array(&array[i], &array[j]);
-			print_array(array, size);
+			print_array((const int *)array, size);
 			i++;
 		}
 	}
-	swap_array(array[last], array[i]);
+	swap_array(&array[last], &array[i]);
 	return (i);
 }
 
