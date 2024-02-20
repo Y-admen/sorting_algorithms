@@ -6,15 +6,16 @@
  * @b:pointer to  b
  */
 
-void swap_array(int *a, int *b)
+void swap_array(int* array, size_t size, int *a, int *b)
 {
 	int temp;
 
 	if (*a != *b)
 	{
-	temp = *a;
-	*a = *b;
-	*b = temp;
+		temp = *a;
+		*a = *b;
+		*b = temp;
+		print_array((const int *)array, size);
 	}
 }
 
@@ -27,7 +28,7 @@ void swap_array(int *a, int *b)
  * Return: return the position of the last element(pivot) sorted
  */
 
-int partition(int *array, size_t size, int first, int last)
+size_t partition(int *array, size_t size, size_t first, size_t last)
 {
 	int i, j, pivot;
 
@@ -35,12 +36,9 @@ int partition(int *array, size_t size, int first, int last)
 	for (i = j = first; j < last; j++)
 	{
 		if (array[j] < pivot)
-		{
-			swap_array(&array[i++], &array[j]);
-			print_array((const int *)array, size);
-		}
+			swap_array(array, size, &array[i++], &array[j]);
 	}
-	swap_array(&array[last], &array[i]);
+	swap_array(array, size, &array[last], &array[i]);
 	return (i);
 }
 
@@ -51,9 +49,9 @@ int partition(int *array, size_t size, int first, int last)
  * @first: first element of arr
  * @last: last element of arr
  */
-void quicksort(int *array, size_t size, int first, int last)
+void quicksort(int *array, size_t size, size_t first, size_t last)
 {
-	int p;
+	size_t p;
 
 	if (first < last)
 	{
@@ -75,5 +73,5 @@ void quick_sort(int *array, size_t size)
 {
 	if (!array || !size)
 		return;
-	quicksort(array, size, 0, (int)size - 1);
+	quicksort(array, size, 0, size - 1);
 }
