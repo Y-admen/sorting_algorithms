@@ -28,7 +28,7 @@ void swap_array(int *array, size_t size, int *a, int *b)
  * Return: return the position of the last element(pivot) sorted
  */
 
-size_t partition(int *array, size_t size, size_t first, size_t last)
+size_t partition(int *array, size_t size, ssize_t first, ssize_t last)
 {
 	int i, j, pivot;
 
@@ -49,7 +49,7 @@ size_t partition(int *array, size_t size, size_t first, size_t last)
  * @first: first element of arr
  * @last: last element of arr
  */
-void quicksort(int *array, size_t size, size_t first, size_t last)
+void quicksort(int *array, size_t size, ssize_t first, ssize_t last)
 {
 	size_t p;
 
