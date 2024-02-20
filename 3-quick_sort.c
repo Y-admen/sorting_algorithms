@@ -6,15 +6,15 @@
  * @b:pointer to  b
  */
 
-void swap_array(int* array, size_t size, int *a, int *b)
+void swap_array(int *array, size_t size, int *a, int *b)
 {
-	int temp;
+	int *temp;
 
 	if (*a != *b)
 	{
-		temp = *a;
+		*temp = *a;
 		*a = *b;
-		*b = temp;
+		*b = *temp;
 		print_array((const int *)array, size);
 	}
 }
