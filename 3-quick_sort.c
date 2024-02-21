@@ -14,7 +14,7 @@ void swap_array(int *a, int *b)
 	{
 		temp = *a;
 		*a = *b;
-		*b = temp;
+		*b =  temp;
 	}
 	else
 		return;
@@ -76,5 +76,5 @@ void quick_sort(int *array, size_t size)
 {
 	if (!array || !size)
 		return;
-	quicksort(array, size, 0, size - 1);
+	quicksort(array, size, 0, (int)size - 1);
 }
