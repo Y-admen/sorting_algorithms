@@ -6,7 +6,7 @@
  * @b:pointer to  b
  */
 
-void swap_array(int *array, size_t size, int *a, int *b)
+void swap_array(int *a, int *b)
 {
 	int *temp;
 
@@ -35,10 +35,10 @@ int partition(int *array, size_t size, int first, int last)
 	for (i = j = first; j < last; j++)
 	{
 		if (array[j] < pivot)
-			swap_array(array, size, &array[i++], &array[j]);
+			swap_array(&array[i++], &array[j]);
 			print_array((const int *)array, size);
 	}
-	swap_array(array, size, &array[last], &array[i]);
+	swap_array(&array[last], &array[i]);
 	return (i);
 }
 
