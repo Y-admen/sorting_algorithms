@@ -25,7 +25,7 @@ void swap_array(int *a, int *b)
  * @size: size of array
  * Return: the gap value
 */
-int calc_gap(int *array, size_t size)
+int calc_gap(size_t size)
 {
 	size_t n;
 
@@ -44,12 +44,12 @@ int calc_gap(int *array, size_t size)
 */
 void shell_sort(int *array, size_t size)
 {
-	int gap, i, j;
+	size_t gap, i, j;
 
 	if (!array || !size)
 	return;
 
-	for (gap = calc_gap(array, size);; gap = (gap - 1) / 3)
+	for (gap = calc_gap(size);; gap = (gap - 1) / 3)
 	{
 		for (j = gap, i = j - gap; j > gap - 1 && j < size - 1; j++, i++)
 		{
