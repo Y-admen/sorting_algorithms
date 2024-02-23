@@ -7,7 +7,7 @@
 */
 
 
-void swap_linkedlist(listint_t *a, listint_t *b)
+void swap(listint_t *a, listint_t *b)
 {
 	if (a->prev)
 		a->prev->next = b;
