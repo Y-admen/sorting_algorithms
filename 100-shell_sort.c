@@ -21,7 +21,6 @@ void swap_array(int *a, int *b)
 }
 /**
  * calc_gap - func calc the gap
- * @array: array of integers
  * @size: size of array
  * Return: the gap value
 */
