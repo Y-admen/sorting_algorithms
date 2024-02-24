@@ -54,6 +54,8 @@ void shell_sort(int *array, size_t size)
 		{
 			if (array[i] > array[j])
 				swap_array(&array[i], &array[j]);
+			else
+				break;
 		}
 	}
 }
