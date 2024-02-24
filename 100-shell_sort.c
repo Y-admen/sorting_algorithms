@@ -16,8 +16,6 @@ void swap_array(int *a, int *b)
 		*a = *b;
 		*b =  temp;
 	}
-	else
-		return;
 }
 /**
  * calc_gap - func calc the gap
@@ -33,7 +31,7 @@ int calc_gap(size_t size)
 	{
 		n = n * 3 + 1;
 	}
-	return (n - 1 / 3);
+	return ((n - 1) / 3);
 
 }
 /**
@@ -48,6 +46,7 @@ void shell_sort(int *array, size_t size)
 	if (!array || !size)
 	return;
 
+
 	for (gap = calc_gap(size);; gap = (gap - 1) / 3)
 	{
 		for (j = gap, i = j - gap; j > gap - 1 && j < size - 1; j++, i++)
@@ -57,5 +56,6 @@ void shell_sort(int *array, size_t size)
 			else
 				break;
 		}
+		print_array(array, size);
 	}
 }
