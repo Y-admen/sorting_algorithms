@@ -44,17 +44,17 @@ void shell_sort(int *array, size_t size)
 	size_t gap, i, j;
 
 	if (!array || !size)
-	return;
+		return;
 
 
 	for (gap = calc_gap(size);; gap = (gap - 1) / 3)
 	{
 		for (j = gap, i = j - gap; j > gap - 1 && j < size - 1; j++, i++)
 		{
-			if (array[i] > array[j])
-				swap_array(&array[i], &array[j]);
-			else
-				break;
+			for (j = i; j >= gap && array[j - gap] > array[j]; j -= gap)
+			{
+				swap_array(&array[j], &array[j - gap]);
+			}
 		}
 		print_array(array, size);
 	}
