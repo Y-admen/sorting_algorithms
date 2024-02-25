@@ -30,11 +30,11 @@ void swap_array(int *a, int *b)
  */
 int partition(int *array, size_t size, size_t left, size_t right)
 {
-	size_t above, below;
+	size_t above, below, i;
 	int *pivot, all_same;
 
 	all_same = 1;
-	for (size_t i = left + 1; i <= right; ++i)
+	for (i = left + 1; i <= right; ++i)
 	{
 		if (array[i] != array[i - 1])
 		{
