@@ -30,7 +30,8 @@ void swap_array(int *a, int *b)
  */
 int partition(int *array, size_t size, size_t left, size_t right)
 {
-	int *pivot, above, below;
+	size_t above, below;
+	int *pivot;
 
 	pivot = array + right;
 	for (above = below = left; below < right; below++)
@@ -39,7 +40,7 @@ int partition(int *array, size_t size, size_t left, size_t right)
 		{
 			if (above < below)
 			{
-				swap_ints(array + below, array + above);
+				swap_array(array + below, array + above);
 				print_array(array, size);
 			}
 			above++;
@@ -48,7 +49,7 @@ int partition(int *array, size_t size, size_t left, size_t right)
 
 	if (array[above] > *pivot)
 	{
-		swap_ints(array + above, pivot);
+		swap_array(array + above, pivot);
 		print_array(array, size);
 	}
 
