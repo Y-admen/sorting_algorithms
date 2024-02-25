@@ -19,7 +19,7 @@ void swap_array(int *a, int *b)
 }
 
 /**
- * lomuto_partition - Order a subset of an array of integers according to
+ * partition - Order a subset of an array of integers according to
  *                    the lomuto partition scheme (last element as pivot).
  * @array: The array of integers.
  * @size: The size of the array.
@@ -28,7 +28,7 @@ void swap_array(int *a, int *b)
  *
  * Return: The final partition index.
  */
-int lomuto_partition(int *array, size_t size, int left, int right)
+int partition(int *array, size_t size, size_t left, size_t right)
 {
 	int *pivot, above, below;
 
