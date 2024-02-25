@@ -52,6 +52,8 @@ int partition(int *array, size_t size, size_t left, size_t right)
 		swap_array(array + above, pivot);
 		print_array(array, size);
 	}
+	if (above == left && array[above] == *pivot)
+		return (left + (right - left) / 2);
 
 	return (above);
 
