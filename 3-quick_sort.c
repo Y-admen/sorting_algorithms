@@ -43,7 +43,7 @@ int partition(int *array, size_t size, size_t left, size_t right)
 		}
 	}
 	if (all_same)
-	return left + (right - left) / 2;
+		return (left + (right - left) / 2);
 	pivot = array + right;
 	for (above = below = left; below < right; below++)
 	{
