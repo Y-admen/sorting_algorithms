@@ -19,36 +19,41 @@ void swap_array(int *a, int *b)
 }
 
 /**
- * partition -  partition the array
- * @array: array to be sorted
- * @size: size of the array
- * @first: first element of arr
- * @last: last element of arr
- * Return: return the position of the last element(pivot) sorted
+ * lomuto_partition - Order a subset of an array of integers according to
+ *                    the lomuto partition scheme (last element as pivot).
+ * @array: The array of integers.
+ * @size: The size of the array.
+ * @left: The starting index of the subset to order.
+ * @right: The ending index of the subset to order.
+ *
+ * Return: The final partition index.
  */
-
-int partition(int *array, size_t size, int first, int last)
+int lomuto_partition(int *array, size_t size, int left, int right)
 {
-	int i, j, pivot;
+	int *pivot, above, below;
 
-	pivot = array[last];
-	for (i = j = first; j < last; j++)
+	pivot = array + right;
+	for (above = below = left; below < right; below++)
 	{
-		if (array[j] < pivot)
+		if (array[below] < *pivot)
 		{
-			if (array[j] != array[i])
+			if (above < below)
 			{
-				swap_array(&array[i++], &array[j]);
-				print_array((const int *)array, size);
+				swap_ints(array + below, array + above);
+				print_array(array, size);
 			}
+			above++;
 		}
 	}
-	if(i < last)
+
+	if (array[above] > *pivot)
 	{
-		swap_array(&array[last], &array[i]);
-		print_array((const int *)array, size);
+		swap_ints(array + above, pivot);
+		print_array(array, size);
 	}
-	return (i);
+
+	return (above);
+
 }
 
 /**
@@ -58,9 +63,9 @@ int partition(int *array, size_t size, int first, int last)
  * @first: first element of arr
  * @last: last element of arr
  */
-void quicksort(int *array, size_t size, int first, int last)
+void quicksort(int *array, size_t size, size_t first, size_t last)
 {
-	int p;
+	size_t p;
 
 	if (first < last)
 	{
@@ -80,7 +85,7 @@ void quicksort(int *array, size_t size, int first, int last)
  */
 void quick_sort(int *array, size_t size)
 {
-	if (!array || !size)
+	if (!array || !size || size < 2)
 		return;
-	quicksort(array, size, 0, (int)size - 1);
+	quicksort(array, size, 0, size - 1);
 }
