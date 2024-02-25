@@ -16,8 +16,6 @@ void swap_array(int *a, int *b)
 		*a = *b;
 		*b =  temp;
 	}
-	else
-		return;
 }
 
 /**
@@ -45,8 +43,11 @@ int partition(int *array, size_t size, int first, int last)
 			}
 		}
 	}
-	swap_array(&array[last], &array[i]);
-	print_array((const int *)array, size);
+	if(i < last)
+	{
+		swap_array(&array[last], &array[i]);
+		print_array((const int *)array, size);
+	}
 	return (i);
 }
 
