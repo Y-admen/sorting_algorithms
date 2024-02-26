@@ -48,14 +48,12 @@ int partition(int *array, size_t size, size_t left, size_t right)
 			all_same = 0;
 		}
 	}
-	if (all_same)
-		return (left + (right - left) / 2);
 	if (array[above] > *pivot)
 	{
 		swap_array(array + above, pivot);
 		print_array(array, size);
 	}
-	if (above == left && array[above] == *pivot)
+	if (all_same || above == left && array[above] == *pivot)
 		return (left + (right - left) / 2);
 
 	return (above);

@@ -38,7 +38,7 @@ void insertion_sort_list(listint_t **list)
 		{
 			if (j->prev->n > j->n)
 			{
-				_swap(j->prev, j);
+				swap(j->prev, j);
 				if (!j->prev)
 					*list = j;
 				print_list((const listint_t *)*list);
