@@ -42,20 +42,23 @@ int calc_gap(size_t size)
 void shell_sort(int *array, size_t size)
 {
 	size_t gap, i, j;
+	int temp;
 
-	if (!array || !size)
+	if (!array || !size || size < 2)
 		return;
 
 
-	for (gap = calc_gap(size);; gap = (gap - 1) / 3)
+	for (gap = calc_gap(size); gap > 0; gap /= 2)
 	{
-		for (j = gap, i = j - gap; j > gap - 1 && j < size - 1; j++, i++)
+		for (i = gap; i < size; i++)
 		{
-			for (j = i; j >= gap && array[j - gap] > array[j]; j -= gap)
+			temp = array[i];
+			for (j = i; j >= gap && array[j - gap] > temp; j -= gap)
 			{
-				swap_array(&array[j], &array[j - gap]);
+				array[j] = array[j - gap];
 			}
 		}
-		print_array(array, size);
+		array[j] = temp;
 	}
+	print_array(array, size);
 }
