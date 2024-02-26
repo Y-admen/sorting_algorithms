@@ -1,7 +1,7 @@
 #include "sort.h"
 
 /**
- * _swap - swap two nodes in linked list
+ * swap - swap two nodes in linked list
  * @a: pointer to node a
  * @b:pointer to node b
 */
